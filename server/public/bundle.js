@@ -19981,7 +19981,7 @@ var _Home = __webpack_require__(83);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _weather_api = __webpack_require__(85);
+var _weather_api = __webpack_require__(87);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20026,20 +20026,10 @@ var App = function (_React$Component) {
     }
   }, {
     key: 'getWeatherData',
-    value: function (_getWeatherData) {
-      function getWeatherData(_x, _x2) {
-        return _getWeatherData.apply(this, arguments);
-      }
-
-      getWeatherData.toString = function () {
-        return _getWeatherData.toString();
-      };
-
-      return getWeatherData;
-    }(function (city, country) {
+    value: function getWeatherData(city, country) {
       var _this2 = this;
 
-      console.log('app getweatherData func working? >>>', getWeatherData);
+      console.log('app getweatherData func working? >>>', this.getWeatherData);
       (0, _weather_api.getWeather)(city, country).then(function (data) {
         console.log('App get the data from api? >>>', data);
         _this2.setState({
@@ -20049,7 +20039,7 @@ var App = function (_React$Component) {
           humidity: data.main.humidity
         });
       });
-    })
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -20066,7 +20056,7 @@ var App = function (_React$Component) {
             { className: 'gridcontainer' },
             _react2.default.createElement(_Header2.default, null),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render(props) {
-                return _react2.default.createElement(_Home2.default, _extends({ getWeatherData: _this3.getWeatherData }, props));
+                return _react2.default.createElement(_Home2.default, _extends({ getWeatherData: _this3.getWeatherData, temprature: _this3.state.temprature, city: _this3.state.city, country: _this3.state.country, humidity: _this3.state.humidity }, props));
               } }),
             _react2.default.createElement(_Footer2.default, null)
           )
@@ -23620,11 +23610,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _WeatherForm = __webpack_require__(266);
+var _WeatherForm = __webpack_require__(85);
 
 var _WeatherForm2 = _interopRequireDefault(_WeatherForm);
 
-var _WeatherData = __webpack_require__(267);
+var _WeatherData = __webpack_require__(86);
 
 var _WeatherData2 = _interopRequireDefault(_WeatherData);
 
@@ -23658,9 +23648,138 @@ exports.default = Weather;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var WeatherForm = function (_React$Component) {
+    _inherits(WeatherForm, _React$Component);
+
+    function WeatherForm(props) {
+        _classCallCheck(this, WeatherForm);
+
+        var _this = _possibleConstructorReturn(this, (WeatherForm.__proto__ || Object.getPrototypeOf(WeatherForm)).call(this, props));
+
+        _this.state = {
+            city: undefined,
+            country: undefined
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        return _this;
+    }
+
+    _createClass(WeatherForm, [{
+        key: 'handleChange',
+        value: function handleChange(event) {
+            console.log('evt', event.target);
+            this.setState(_defineProperty({}, event.target.name, event.target.value));
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'form',
+                    { onSubmit: function onSubmit() {
+                            return _this2.props.getWeatherData(_this2.state.city, _this2.state.country);
+                        } },
+                    _react2.default.createElement('input', { type: 'text', name: 'city', placeholder: 'City', onChange: this.handleChange }),
+                    _react2.default.createElement('input', { type: 'text', name: 'country', placeholder: 'Country', onChange: this.handleChange }),
+                    _react2.default.createElement(
+                        'button',
+                        { className: 'formbtn' },
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            'Get Weather'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return WeatherForm;
+}(_react2.default.Component);
+
+exports.default = WeatherForm;
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var WeatherData = function WeatherData(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "weatherdata" },
+        props.city && _react2.default.createElement(
+            "p",
+            null,
+            props.city
+        ),
+        props.country && _react2.default.createElement(
+            "p",
+            null,
+            props.country
+        ),
+        props.temprature && _react2.default.createElement(
+            "p",
+            null,
+            props.temprature
+        ),
+        props.humidity && _react2.default.createElement(
+            "p",
+            null,
+            props.humidity
+        )
+    );
+};
+
+exports.default = WeatherData;
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 exports.getWeather = undefined;
 
-var _superagent = __webpack_require__(86);
+var _superagent = __webpack_require__(88);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
@@ -23679,10 +23798,8 @@ var getWeather = exports.getWeather = function getWeather(city, country) {
     });
 };
 
-getWeather();
-
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -23699,11 +23816,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-const Emitter = __webpack_require__(87);
-const RequestBase = __webpack_require__(88);
+const Emitter = __webpack_require__(89);
+const RequestBase = __webpack_require__(90);
 const isObject = __webpack_require__(35);
-const ResponseBase = __webpack_require__(89);
-const Agent = __webpack_require__(91);
+const ResponseBase = __webpack_require__(91);
+const Agent = __webpack_require__(93);
 
 /**
  * Noop.
@@ -24607,7 +24724,7 @@ request.put = (url, data, fn) => {
 
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -24776,7 +24893,7 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 88 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25478,7 +25595,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25488,7 +25605,7 @@ RequestBase.prototype._setTimeouts = function() {
  * Module dependencies.
  */
 
-const utils = __webpack_require__(90);
+const utils = __webpack_require__(92);
 
 /**
  * Expose `ResponseBase`.
@@ -25621,7 +25738,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25693,7 +25810,7 @@ exports.cleanHeader = (header, changesOrigin) => {
 
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, exports) {
 
 function Agent() {
@@ -25717,271 +25834,6 @@ Agent.prototype._setDefaults = function(req) {
 
 module.exports = Agent;
 
-
-/***/ }),
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */,
-/* 153 */,
-/* 154 */,
-/* 155 */,
-/* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
-/* 201 */,
-/* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */,
-/* 220 */,
-/* 221 */,
-/* 222 */,
-/* 223 */,
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var WeatherForm = function WeatherForm(props) {
-    return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-            'form',
-            { onClick: function onClick() {
-                    return props.getWeatherData(city, country);
-                } },
-            console.log('weatherform function >>>>', props),
-            _react2.default.createElement('input', { type: 'text', name: props.city, placeholder: 'City' }),
-            _react2.default.createElement('input', { type: 'text', name: props.country, placeholder: 'Country' }),
-            _react2.default.createElement(
-                'button',
-                { className: 'formbtn' },
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Get Weather'
-                )
-            )
-        )
-    );
-};
-{/* <form onSubmit={() => props.getWeather(city, country)}></form> */}
-
-exports.default = WeatherForm;
-
-/***/ }),
-/* 267 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var WeatherData = function WeatherData(props) {
-    return _react2.default.createElement(
-        "div",
-        { className: "weatherdata" },
-        props.city && _react2.default.createElement(
-            "p",
-            null,
-            props.city
-        ),
-        props.country && _react2.default.createElement(
-            "p",
-            null,
-            props.country
-        ),
-        props.temprature && _react2.default.createElement(
-            "p",
-            null,
-            props.temprature
-        ),
-        props.humidity && _react2.default.createElement(
-            "p",
-            null,
-            props.humidity
-        )
-    );
-};
-
-exports.default = WeatherData;
 
 /***/ })
 /******/ ]);

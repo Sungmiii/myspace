@@ -15,5 +15,3 @@ export const getWeather = (city, country) => {
             return weather
         })
 }
-
-getWeather()

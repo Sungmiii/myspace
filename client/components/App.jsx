@@ -33,7 +33,7 @@ class App extends React.Component {
     //   })
   }
   getWeatherData(city, country) {
-    console.log('app getweatherData func working? >>>', getWeatherData)
+    console.log('app getweatherData func working? >>>', this.getWeatherData)
     getWeather(city, country)
       .then(data => {
         console.log('App get the data from api? >>>', data)
@@ -52,7 +52,7 @@ class App extends React.Component {
           <div className="gridcontainer">
             <Header />
             <Route exact path="/" render={props => {
-              return <Home getWeatherData={this.getWeatherData} {...props} />
+              return <Home getWeatherData={this.getWeatherData} temprature={this.state.temprature} city={this.state.city} country={this.state.country} humidity={this.state.humidity} {...props} />
             }} />
             <Footer />
           </div>
