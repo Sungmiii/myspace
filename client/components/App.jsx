@@ -1,9 +1,14 @@
 import React from 'react'
+
+
+
 import { HashRouter, Route } from 'react-router-dom'
 
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
+
+import Moment from 'react-moment'
 
 import { getWeather } from '../client_api/weather_api'
 
@@ -15,7 +20,8 @@ class App extends React.Component {
       city: undefined,
       country: undefined,
       temprature: undefined,
-      humidity: undefined
+      humidity: undefined,
+      currentTime: new Date()
     }
     this.getWeatherData = this.getWeatherData.bind(this)
   }
@@ -44,8 +50,15 @@ class App extends React.Component {
           humidity: data.main.humidity
         })
       })
+    setInterval(() => {
+      this.setState({
+        currentTime: new Date()
+      })
+    }, 1000)
+
   }
   render() {
+
     return (
       <HashRouter>
         <React.Fragment>
@@ -54,6 +67,7 @@ class App extends React.Component {
             <Route exact path="/" render={props => {
               return <Home getWeatherData={this.getWeatherData} temprature={this.state.temprature} city={this.state.city} country={this.state.country} humidity={this.state.humidity} {...props} />
             }} />
+            <Moment>{this.state.currentTime}</Moment>
             <Footer />
           </div>
         </React.Fragment>

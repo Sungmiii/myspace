@@ -59,5 +59,9 @@ typings/
 
 # next.js build output
 .next
+<<<<<<< HEAD
 
 bundle.js*
+=======
+bundle.js*
+>>>>>>> cd86f2955be70df22433a9c2b7e5479438c508cc
