@@ -18315,11 +18315,6 @@ var App = function (_React$Component) {
           null,
           'My Space'
         ),
-        _react2.default.createElement(
-          'h2',
-          null,
-          '\u665A\u5B89\uFF0C\u5730\u7403 \u548C \u65BD\u743C\u5A1C \uFF1A\uFF09'
-        ),
         _react2.default.createElement(_LiveStream2.default, null)
       );
     }
