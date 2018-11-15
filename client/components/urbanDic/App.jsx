@@ -22,6 +22,8 @@ class App extends React.Component {
     });
   }
 
+
+
   render() {
     return (
       <div>
@@ -35,9 +37,8 @@ class App extends React.Component {
           <searchTerm searchTerm={this.state.title} />
         </p>
         <p>
-          {this.state.title.map(title=> (
-              <Title title={title} />
-          ))}
+          {this.state.title.length && <Title title = {this.state.title[0]}/>}
+
         </p>
       </div>
     );
@@ -45,3 +46,23 @@ class App extends React.Component {
 }
 
 export default App;
+
+/**  
+ * if(milk.exists){
+  return milk
+} else {
+  return juice
+}
+
+milk.exists ? return milk : return juice\
+thing.length ? <Title /> : <p> loading </p>
+
+
+
+if(milk.exists){
+  return milk
+}
+
+milk.exists && return milk
+
+*/
