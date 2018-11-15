@@ -17,6 +17,7 @@ class App extends React.Component {
       temprature: undefined,
       humidity: undefined
     }
+    this.getWeatherData = this.getWeatherData.bind(this)
   }
   componentDidMount() {
     console.log('App componentDidMount')
@@ -32,9 +33,10 @@ class App extends React.Component {
     //   })
   }
   getWeatherData(city, country) {
+    console.log('app getweatherData func working? >>>', getWeatherData)
     getWeather(city, country)
       .then(data => {
-        console.log('get the data from api? >>>', data)
+        console.log('App get the data from api? >>>', data)
         this.setState({
           city: data.name,
           country: data.sys.country,

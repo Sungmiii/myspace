@@ -7,7 +7,7 @@ const Home = (props) => {
         <main>
             <section className="mainarea">
                 <p>all api area</p>
-                <Weather getWeather={props.getWeather} temprature={props.temprature} humidity={props.humidity} city={props.city} country={props.country} />
+                <Weather getWeatherData={props.getWeatherData} temprature={props.temprature} humidity={props.humidity} city={props.city} country={props.country} />
             </section>
         </main>
     )

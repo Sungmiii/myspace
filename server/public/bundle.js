@@ -20005,6 +20005,7 @@ var App = function (_React$Component) {
       temprature: undefined,
       humidity: undefined
     };
+    _this.getWeatherData = _this.getWeatherData.bind(_this);
     return _this;
   }
 
@@ -20025,11 +20026,22 @@ var App = function (_React$Component) {
     }
   }, {
     key: 'getWeatherData',
-    value: function getWeatherData(city, country) {
+    value: function (_getWeatherData) {
+      function getWeatherData(_x, _x2) {
+        return _getWeatherData.apply(this, arguments);
+      }
+
+      getWeatherData.toString = function () {
+        return _getWeatherData.toString();
+      };
+
+      return getWeatherData;
+    }(function (city, country) {
       var _this2 = this;
 
+      console.log('app getweatherData func working? >>>', getWeatherData);
       (0, _weather_api.getWeather)(city, country).then(function (data) {
-        console.log('get the data from api? >>>', data);
+        console.log('App get the data from api? >>>', data);
         _this2.setState({
           city: data.name,
           country: data.sys.country,
@@ -20037,7 +20049,7 @@ var App = function (_React$Component) {
           humidity: data.main.humidity
         });
       });
-    }
+    })
   }, {
     key: 'render',
     value: function render() {
@@ -23586,7 +23598,7 @@ var Home = function Home(props) {
                 null,
                 'all api area'
             ),
-            _react2.default.createElement(_Weather2.default, { getWeather: props.getWeather, temprature: props.temprature, humidity: props.humidity, city: props.city, country: props.country })
+            _react2.default.createElement(_Weather2.default, { getWeatherData: props.getWeatherData, temprature: props.temprature, humidity: props.humidity, city: props.city, country: props.country })
         )
     );
 };
@@ -23612,6 +23624,10 @@ var _WeatherForm = __webpack_require__(266);
 
 var _WeatherForm2 = _interopRequireDefault(_WeatherForm);
 
+var _WeatherData = __webpack_require__(267);
+
+var _WeatherData2 = _interopRequireDefault(_WeatherData);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Weather = function Weather(props) {
@@ -23624,7 +23640,9 @@ var Weather = function Weather(props) {
             null,
             'weather api area'
         ),
-        _react2.default.createElement(_WeatherForm2.default, { getWeather: props.getWeather })
+        _react2.default.createElement(_WeatherForm2.default, { getWeatherData: props.getWeatherData, city: props.city, country: props.country }),
+        console.log('Weather component function >>>', props.getWeatherData),
+        _react2.default.createElement(_WeatherData2.default, { city: props.city, country: props.country, temprature: props.temprature, humidity: props.humidity })
     );
 };
 
@@ -25893,29 +25911,77 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var WeatherForm = function WeatherForm(props) {
     return _react2.default.createElement(
-        "div",
+        'div',
         null,
         _react2.default.createElement(
-            "form",
-            { onSubmit: function onSubmit() {
-                    return props.getWeather(city, country);
+            'form',
+            { onClick: function onClick() {
+                    return props.getWeatherData(city, country);
                 } },
-            _react2.default.createElement("input", { type: "text", name: "city", placeholder: "City" }),
-            _react2.default.createElement("input", { type: "text", name: "country", placeholder: "Country" }),
+            console.log('weatherform function >>>>', props),
+            _react2.default.createElement('input', { type: 'text', name: props.city, placeholder: 'City' }),
+            _react2.default.createElement('input', { type: 'text', name: props.country, placeholder: 'Country' }),
             _react2.default.createElement(
-                "button",
-                { className: "formbtn" },
+                'button',
+                { className: 'formbtn' },
                 _react2.default.createElement(
-                    "span",
+                    'span',
                     null,
-                    "Get Weather"
+                    'Get Weather'
                 )
             )
         )
     );
 };
+{/* <form onSubmit={() => props.getWeather(city, country)}></form> */}
 
 exports.default = WeatherForm;
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var WeatherData = function WeatherData(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "weatherdata" },
+        props.city && _react2.default.createElement(
+            "p",
+            null,
+            props.city
+        ),
+        props.country && _react2.default.createElement(
+            "p",
+            null,
+            props.country
+        ),
+        props.temprature && _react2.default.createElement(
+            "p",
+            null,
+            props.temprature
+        ),
+        props.humidity && _react2.default.createElement(
+            "p",
+            null,
+            props.humidity
+        )
+    );
+};
+
+exports.default = WeatherData;
 
 /***/ })
 /******/ ]);
