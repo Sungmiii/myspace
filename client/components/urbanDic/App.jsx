@@ -26,7 +26,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="word">
         <marquee>
           <h1>A Truely Terrible Idea!</h1>
         </marquee>
@@ -47,22 +47,3 @@ class App extends React.Component {
 
 export default App;
 
-/**  
- * if(milk.exists){
-  return milk
-} else {
-  return juice
-}
-
-milk.exists ? return milk : return juice\
-thing.length ? <Title /> : <p> loading </p>
-
-
-
-if(milk.exists){
-  return milk
-}
-
-milk.exists && return milk
-
-*/

@@ -18960,7 +18960,7 @@ var App = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         "div",
-        null,
+        { className: "word" },
         _react2.default.createElement(
           "marquee",
           null,
@@ -18999,26 +18999,6 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = App;
-
-/**  
- * if(milk.exists){
-  return milk
-} else {
-  return juice
-}
-
-milk.exists ? return milk : return juice\
-thing.length ? <Title /> : <p> loading </p>
-
-
-
-if(milk.exists){
-  return milk
-}
-
-milk.exists && return milk
-
-*/
 
 /***/ }),
 /* 31 */

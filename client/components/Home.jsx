@@ -8,7 +8,7 @@ const Home = (props) => {
         <main>
             <section className="mainarea">
                 <p>all api area</p>
-                <Urban />
+                <Urban searchTerm={props.title} title = {props.title[0]}/>
                 <Weather getWeather={props.getWeather} temprature={props.temprature} humidity={props.humidity} city={props.city} country={props.country} />
             </section>
         </main>
