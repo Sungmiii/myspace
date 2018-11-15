@@ -5,8 +5,23 @@ import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
 
+import { getWeather } from '../client_api/weather_api'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      city: undefined,
+      country: undefined,
+    }
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount')
+
+
+  }
   render() {
     return (
       <HashRouter>

@@ -78,6 +78,16 @@ footer{
     display: grid;
     width: 100%;
     grid-template-columns: repeat(12 ,[col] 1fr);
-    background-color: white;
+    grid-auto-rows: repeat(6, [row] 1fr);
+    background-color: white; 
+    align-items: center;
    
+}
+
+.weathersection{
+    grid-column: col 2 / span 10;
+    grid-row: row 6;
+    background-color: pink;
+    padding: 3em;
+    margin-bottom: 3em;
 }
