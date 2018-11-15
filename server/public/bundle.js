@@ -18948,12 +18948,10 @@ var App = function (_React$Component) {
       var _this2 = this;
 
       (0, _api.getUD)().then(function (title) {
-        console.log(title);
-
+        console.log("where is from", title[1]);
         _this2.setState({
           title: title,
           searchTerm: _searchTerm2.default
-
         });
       });
     }
@@ -18980,23 +18978,19 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           "h2",
           null,
-          "Your Word of the day: ",
-          _searchTerm2.default
+          "Your Word of the day:"
         ),
         _react2.default.createElement(
-          "ul",
+          "p",
           null,
-          _react2.default.createElement(
-            "li",
-            null,
-            _react2.default.createElement("searchTerm", { searchTerm: this.state.title })
-          ),
+          " ",
+          _react2.default.createElement("searchTerm", { searchTerm: this.state.title })
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
           this.state.title.map(function (title) {
-            return _react2.default.createElement(
-              "li",
-              null,
-              _react2.default.createElement(_Title2.default, { title: title })
-            );
+            return _react2.default.createElement(_Title2.default, { title: title });
           })
         )
       );
@@ -21101,11 +21095,7 @@ function searchTerm(props) {
   return _react2.default.createElement(
     "div",
     null,
-    _react2.default.createElement(
-      "ul",
-      null,
-      results
-    )
+    results
   );
 }
 

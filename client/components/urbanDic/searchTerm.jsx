@@ -10,7 +10,7 @@ function searchTerm(props) {
 
   return (
     <div>
-      <ul>{results}</ul>
+      {results}
     </div>
   );
 }

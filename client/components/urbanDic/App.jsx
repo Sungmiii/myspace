@@ -3,8 +3,6 @@ import { getUD } from "../api";
 import Title from "./Title";
 import searchTerm from "./searchTerm";
 
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,13 +14,10 @@ class App extends React.Component {
   }
   componentDidMount() {
     getUD().then(title => {
-      console.log(title);
-
-
+      console.log("where is from", title[1]);
       this.setState({
         title: title,
         searchTerm: searchTerm
-       
       });
     });
   }
@@ -30,16 +25,20 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <marquee><h1>A Truely Terrible Idea!</h1></marquee>
+        <marquee>
+          <h1>A Truely Terrible Idea!</h1>
+        </marquee>
         <h3>Bought to you by Urban Dictionary.</h3>
-        <h2>Your Word of the day: {searchTerm}</h2>
-        <ul>
-          {/* <li>{this.state.title && this.state.title.description}</li> */}
-          <li>
-            <searchTerm searchTerm={this.state.title} />
-          </li>
-          {this.state.title.map(title => <li><Title title={title} /></li>)}
-        </ul>
+        <h2>Your Word of the day:</h2>
+        <p>
+          {" "}
+          <searchTerm searchTerm={this.state.title} />
+        </p>
+        <p>
+          {this.state.title.map(title=> (
+              <Title title={title} />
+          ))}
+        </p>
       </div>
     );
   }
