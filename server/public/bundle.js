@@ -18355,21 +18355,27 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Nav = __webpack_require__(108);
+
+var _Nav2 = _interopRequireDefault(_Nav);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import Logo from '../../server/public/img/logo.gif'
+// import Logo from '../../server/public/img/logo.svg'
 
 var Header = function Header() {
     return _react2.default.createElement(
-        "header",
-        { className: "heroarea" },
+        'header',
+        { className: 'heroarea' },
         _react2.default.createElement(
-            "div",
-            null,
+            'div',
+            { className: 'headercontent' },
+            _react2.default.createElement(_Nav2.default, null),
             _react2.default.createElement(
-                "p",
+                'h1',
                 null,
-                "this is header"
+                'My Space'
             )
         )
     );
@@ -18427,12 +18433,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Home = function Home() {
     return _react2.default.createElement(
-        'main',
+        "main",
         null,
         _react2.default.createElement(
-            'p',
-            null,
-            'this is home'
+            "section",
+            { className: "mainarea" },
+            _react2.default.createElement(
+                "p",
+                null,
+                "all api div area"
+            )
         )
     );
 };
@@ -23449,6 +23459,91 @@ function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
 
 module.exports = hoistNonReactStatics;
 
+
+/***/ }),
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(51);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Nav = function Nav() {
+    return _react2.default.createElement(
+        'nav',
+        { className: 'navlink' },
+        _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                    _reactRouterDom.NavLink,
+                    { exact: true, to: '/' },
+                    'Home'
+                )
+            ),
+            _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                    _reactRouterDom.NavLink,
+                    { exact: true, to: '/' },
+                    'Blog'
+                )
+            ),
+            _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                    _reactRouterDom.NavLink,
+                    { exact: true, to: '/' },
+                    'Contact'
+                )
+            )
+        )
+    );
+};
+
+exports.default = Nav;
 
 /***/ })
 /******/ ]);

@@ -3,7 +3,9 @@ import React from 'react'
 const Home = () => {
     return (
         <main>
-            <p>this is home</p>
+            <section className="mainarea">
+                <p>all api div area</p>
+            </section>
         </main>
     )
 }
