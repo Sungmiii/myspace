@@ -14,13 +14,34 @@ class App extends React.Component {
     this.state = {
       city: undefined,
       country: undefined,
+      temprature: undefined,
+      humidity: undefined
     }
   }
-
   componentDidMount() {
     console.log('App componentDidMount')
-
-
+    // getWeather()
+    //   .then(data => {
+    //     console.log('get the data from api? >>>', data)
+    //     this.setState({
+    //       city: data.name,
+    //       country: data.sys.country,
+    //       temprature: data.main.temp,
+    //       humidity: data.main.humidity
+    //     })
+    //   })
+  }
+  getWeatherData(city, country) {
+    getWeather(city, country)
+      .then(data => {
+        console.log('get the data from api? >>>', data)
+        this.setState({
+          city: data.name,
+          country: data.sys.country,
+          temprature: data.main.temp,
+          humidity: data.main.humidity
+        })
+      })
   }
   render() {
     return (
@@ -28,7 +49,9 @@ class App extends React.Component {
         <React.Fragment>
           <div className="gridcontainer">
             <Header />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={props => {
+              return <Home getWeatherData={this.getWeatherData} {...props} />
+            }} />
             <Footer />
           </div>
         </React.Fragment>

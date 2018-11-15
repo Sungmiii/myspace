@@ -1,13 +1,19 @@
 import React from 'react'
 
-class Weather extends React.Component {
-    render() {
-        return (
-            <section className="weathersection">
-                <p>weather api area</p>
-            </section>
-        )
-    }
+
+import WeatherForm from './WeatherForm'
+
+
+const Weather = (props) => {
+
+
+    return (
+        <section className="weathersection">
+            <p>weather api area</p>
+            <WeatherForm getWeather={props.getWeather} />
+        </section>
+    )
+
 }
 
 export default Weather
