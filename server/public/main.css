@@ -1,0 +1,93 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(193,193,108);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* main grid stlye */
+.gridcontainer{
+    display: grid;
+    grid-template-columns: repeat(12 ,[col] 1fr);
+    grid-template-rows: repeat(6 ,[row] 1fr);
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    grid-column: col 1 /span 12;
+    padding: 0;
+    
+}
+main {
+    grid-column: col 1 /span 12;
+    padding: 3em;
+}
+footer{
+    grid-column: col 1 /span 12;
+}
+
+/* header style */
+.heroarea{
+    background-image:url('./img/heroimg.gif');
+    width: 100%;
+    height: 70vh;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    top: 0;
+}
+
+/* header style */
+
+.headercontent {
+    display: grid;
+    grid-template-columns: repeat(12, [col] 1fr);
+}
+
+.heroarea > div:nth-child(1) > h1:nth-child(2) {
+    grid-column: col /span 12;
+    font-family: 'Amatic SC', cursive !important;
+    font-size: 6em !important;
+    text-align: center !important;
+}
+
+.navlink {
+    grid-column: col 10 /span 12;
+}
+
+.navlink ul {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 1em;
+  }
+  .navlink li {
+    list-style-type:none;
+    margin-right: 3em;
+  }
+  .navlink a {
+    text-decoration: none;
+    color: rgb(87, 87, 87);
+  }
+  
+
+/* main style */
+.mainarea{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(12 ,[col] 1fr);
+    grid-auto-rows: repeat(6, [row] 1fr);
+    background-color: white; 
+    align-items: center;
+   
+}
+
+.weathersection{
+    grid-column: col 2 / span 10;
+    grid-row: row 6;
+    background-color: pink;
+    padding: 3em;
+    margin-bottom: 3em;
+}
