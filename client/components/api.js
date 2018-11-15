@@ -4,7 +4,7 @@ const urbanUrl = 'https://mashape-community-urban-dictionary.p.mashape.com/defin
 
 export function getUD() {
   console.log("request");
-  return request.get(urbanUrl).then(res => {
-    return res.body;
+  return request.get(urbanUrl).set('X-Mashape-Key', 'I79AaxJC8YmshFCC94gauzbuDLoYp1ARmj0jsnD676LOcHtSU5').then(res => {
+    return res.body.list;
   });
 }

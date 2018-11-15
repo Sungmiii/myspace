@@ -15,4 +15,4 @@ function searchTerm(props) {
   );
 }
 
-export default searchTerms;
+export default searchTerm;
