@@ -18357,14 +18357,20 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import Logo from '../../server/public/img/logo.gif'
+
 var Header = function Header() {
     return _react2.default.createElement(
-        'header',
-        null,
+        "header",
+        { className: "heroarea" },
         _react2.default.createElement(
-            'p',
+            "div",
             null,
-            'this is header'
+            _react2.default.createElement(
+                "p",
+                null,
+                "this is header"
+            )
         )
     );
 };

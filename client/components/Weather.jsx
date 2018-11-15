@@ -3,7 +3,7 @@ import React from 'react'
 class Weather extends React.Component {
     render() {
         return (
-            <section>
+            <section className="weathersection">
                 <p>weather api area</p>
             </section>
         )
