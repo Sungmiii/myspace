@@ -28974,7 +28974,7 @@ function LiveStream(props) {
         _react2.default.createElement(
             "h2",
             null,
-            "Livestream Earth Views"
+            "\u5730\u7403 Livestream Earth Views"
         ),
         _react2.default.createElement("iframe", { width: "1500", height: "770", src: "https://www.youtube.com/embed/qnTsIVYxYkc?autoplay=1", frameborder: "0", allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen: true })
     );
