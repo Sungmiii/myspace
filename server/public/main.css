@@ -81,6 +81,7 @@ footer{
     grid-auto-rows: auto;
     background-color: white; 
     align-items: center;
+    border: 10px solid rgb(133, 133, 96);
    
 }
 
@@ -129,12 +130,23 @@ input[type="text"]{
 }
 /* urban style */
 
+marquee>h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 72px;
+  background: -webkit-linear-gradient(#eee, rgb(254, 136, 136));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .word {
     grid-column: col 2 / span 6;
     grid-row: 2;
     width: 750px;
 }
-
+.urbanarea{
+    border: 2px solid black;
+    padding: 3em;
+}
 
 /* livestream */
 .livestream{
@@ -149,4 +161,10 @@ input[type="text"]{
     outline: 2px solid black;
     text-align: center;
     padding: 2em;
+}
+
+/* footer style */
+
+footer {
+    height: 10vh;
 }

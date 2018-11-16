@@ -42,13 +42,13 @@ class App extends React.Component {
     getWeather(city, country)
       .then(data => {
         console.log('App get the data from api? >>>', data)
-        // const kelvin = data.main.temp
-        // console.log('original temp', kelvin)
-        // const celsius = (kelvin - 273.15);
+        const kelvin = data.main.temp
+        console.log('original temp', kelvin)
+        const celsius = Math.floor(kelvin - 273.15)
         this.setState({
           city: data.name,
           country: data.sys.country,
-          temprature: data.main.temp,
+          temprature: celsius,
           humidity: data.main.humidity
         })
       })

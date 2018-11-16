@@ -1,9 +1,12 @@
 import React from 'react'
 
+import Nav from './Nav'
 const Footer = () => {
     return (
         <footer>
-            <p>this is footer</p>
+            <ul className="footernav">
+                <Nav />
+            </ul>
         </footer>
     )
 }

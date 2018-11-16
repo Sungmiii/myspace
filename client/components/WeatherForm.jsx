@@ -22,7 +22,7 @@ class WeatherForm extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={() => this.props.getWeatherData(this.state.city, this.state.country)}>
+                <form onSubmit={(e) => { e.preventDefault(); this.props.getWeatherData(this.state.city, this.state.country) }}>
                     {/* {console.log('weatherform function >>>>', this.props)} */}
                     <input type="text" name="city" placeholder="City" onChange={this.handleChange} />
                     <input type="text" name="country" placeholder="Country" onChange={this.handleChange} />
