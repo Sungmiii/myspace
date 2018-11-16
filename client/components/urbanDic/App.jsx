@@ -14,7 +14,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     getUD().then(title => {
-      console.log("where is from", title[1]);
+      // console.log("where is from", title[1]);
       this.setState({
         title: title,
         searchTerm: searchTerm
@@ -37,7 +37,7 @@ class App extends React.Component {
           <searchTerm searchTerm={this.state.title} />
         </p>
         <p>
-          {this.state.title.length && <Title title = {this.state.title[0]}/>}
+          {this.state.title.length && <Title title={this.state.title[0]} />}
 
         </p>
       </div>

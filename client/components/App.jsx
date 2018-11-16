@@ -8,7 +8,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
 
-import Moment from 'react-moment'
+// import Moment from 'react-moment'
 
 import { getWeather } from '../client_api/weather_api'
 
@@ -43,6 +43,9 @@ class App extends React.Component {
     getWeather(city, country)
       .then(data => {
         console.log('App get the data from api? >>>', data)
+        // const kelvin = data.main.temp
+        // console.log('original temp', kelvin)
+        // const celsius = (kelvin - 273.15);
         this.setState({
           city: data.name,
           country: data.sys.country,
@@ -67,7 +70,7 @@ class App extends React.Component {
             <Route exact path="/" render={props => {
               return <Home getWeatherData={this.getWeatherData} temprature={this.state.temprature} city={this.state.city} country={this.state.country} humidity={this.state.humidity} {...props} />
             }} />
-            <Moment>{this.state.currentTime}</Moment>
+            {/* <Moment>{this.state.currentTime}</Moment> */}
             <Footer />
           </div>
         </React.Fragment>

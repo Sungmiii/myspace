@@ -3,7 +3,7 @@ import React from "react";
 function Title(props) {
   let title = props.title;
 
-  console.log(title);
+  // console.log(title);
 
   return (
     <div>
