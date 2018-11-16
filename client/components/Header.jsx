@@ -13,7 +13,7 @@ const Header = () => {
                 <Nav />
                 {/* <Logo src={require('svg-inline-loader?./img/logo.svg')} /> */}
                 <h1>My Space</h1>
-                
+
             </div>
         </header>
     )
