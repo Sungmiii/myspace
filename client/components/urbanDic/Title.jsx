@@ -6,7 +6,7 @@ function Title(props) {
   // console.log(title);
 
   return (
-    <div>
+    <div className="urbandata">
       <h1>{title.word}</h1>
       <p>{title.definition}</p>
       <p>Example: {title.example}</p>

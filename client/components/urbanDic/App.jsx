@@ -30,16 +30,18 @@ class App extends React.Component {
         <marquee>
           <h1>A Truely Terrible Idea!</h1>
         </marquee>
-        <h3>Bought to you by Urban Dictionary.</h3>
-        <h2>Your Word of the day:</h2>
-        <p>
-          {" "}
-          <searchTerm searchTerm={this.state.title} />
-        </p>
-        <p>
-          {this.state.title.length && <Title title={this.state.title[0]} />}
+        <div className="urbanarea">
+          <h3>Bought to you by Urban Dictionary.</h3>
+          <h2>Your Word of the day:</h2>
+          <p>
+            {" "}
+            <searchTerm searchTerm={this.state.title} />
+          </p>
+          <p>
+            {this.state.title.length && <Title title={this.state.title[0]} />}
 
-        </p>
+          </p>
+        </div>
       </div>
     );
   }
