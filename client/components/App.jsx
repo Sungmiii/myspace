@@ -1,16 +1,15 @@
 import React from 'react'
-
-
-
 import { HashRouter, Route } from 'react-router-dom'
 
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
 
+import { getWeather } from '../client_api/weather_api'
+
+
 // import Moment from 'react-moment'
 
-import { getWeather } from '../client_api/weather_api'
 
 class App extends React.Component {
   constructor(props) {
